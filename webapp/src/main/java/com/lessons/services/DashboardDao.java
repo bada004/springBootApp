@@ -56,4 +56,18 @@ public class DashboardDao
         jt.update(sql, desc, priority);
     }
 
+    //    TODO SQL DELETE Example with a single passed in parameters - Controller is on DashboardContoller.java
+    public void deleteRecord(Integer reportId) {
+        String sql = "delete from reports where id = ?";
+        JdbcTemplate jt = new JdbcTemplate(this.dataSource);
+        jt.update(sql, reportId);
+    }
+
+    //    TODO SQL GET Example with a single passed in parameters - Controller is on DashboardContoller.java
+    public void getReport(Integer reportId) {
+        String sql = "select * from reports where id = ?";
+        JdbcTemplate jt = new JdbcTemplate(this.dataSource);
+        jt.update(sql, reportId);
+    }
+
 }
