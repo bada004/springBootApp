@@ -28,6 +28,7 @@ public class DashboardController {
         logger.debug("DashboardController Started...");
     }
 
+    @Resource
     public ReportService reportService;
 
     @PostConstruct
@@ -118,5 +119,23 @@ public class DashboardController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(reportDTO);
+    }
+
+    @RequestMapping(value = "/api/reports/approved", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<?> approveReport(@RequestParam (name="id") Integer reportId,
+                                           @RequestParam (name="approved")boolean reviewed) {
+        logger.debug("approved started.");
+        if(!reportService.doesIdExist(reportId)) {
+
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .contentType(MediaType.TEXT_PLAIN)
+                    .body("Report ID is not found.");
+        }
+        reportService.approveReport(reportId, reviewed);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("");
     }
 }

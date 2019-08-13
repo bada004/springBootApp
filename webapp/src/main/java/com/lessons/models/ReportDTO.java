@@ -4,6 +4,7 @@ public class ReportDTO {
     private String description;
     private String displayName;
     private boolean reviewed;
+    private Integer reportId;
 
     public String getDescription() {
         return description;
@@ -30,4 +31,8 @@ public class ReportDTO {
     public void setReviewed(boolean reviewed) {
         this.reviewed = reviewed;
     }
+
+    public Integer getReportId() { return reportId; }
+
+    public void setReportId(Integer reportId) { this.reportId = reportId; }
 }
