@@ -9,11 +9,10 @@ server.port: 8080
 # Database Settings
 ##########################################################
 app.datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/app1_db
-    username: app1_user
-    password: secret
-    maxPoolSize: 10
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/app1_db
+  username: app1_user
+  password: secret
+  maxPoolSize: 10
 
 development.mode: true
-
